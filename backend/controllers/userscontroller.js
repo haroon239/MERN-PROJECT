@@ -35,7 +35,7 @@ module.exports.signup=async (req, res)=>{
                     to:email,
                     subject:'verify Mail',
                     text:"click this verify link",
-                    html: `Please click the link <a href="http://localhost:6500/verifyemail/${verifyemail._id}">Verify</a> and verify your account`
+                    html: `Please click the link <a href="https://mern-project-osqw.onrender.com/${verifyemail._id}">Verify</a> and verify your account`
                 }
             
                 transporter.sendMail(mailOptions, function(error, info){
@@ -67,7 +67,7 @@ module.exports.signin = async (req, res) => {
                 } else if (result) {
                     // Passwords match, allow access
                     var token=jwt.sign({_id:user._id}, secret_key, { expiresIn: '1h' });
-                    res.send({status:200,Token:token, response:'Password is correct. Allow access.', id:user._id, name:user.username});
+                    res.send({status:200,Token:token, response:'Password is correct. Allow access.', id:user._id, name:user.username, verify:user.isvarified});
                 } else {
                     // Passwords do not match, deny access
                     res.send('Password is incorrect. Deny access.');
