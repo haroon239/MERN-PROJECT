@@ -35,7 +35,7 @@ module.exports.signup=async (req, res)=>{
                     to:email,
                     subject:'verify Mail',
                     text:"click this verify link",
-                    html: `Please click the link <a href="https://mern-project-osqw.onrender.com/${verifyemail._id}">Verify</a> and verify your account`
+                    html: `Please click the link <a href="https://mern-project-osqw.onrender.com/verifyemail/${verifyemail._id}">Verify</a> and verify your account`
                 }
             
                 transporter.sendMail(mailOptions, function(error, info){
