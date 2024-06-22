@@ -32,8 +32,8 @@ module.exports.paymentintegrate = async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: `http://localhost:5173/success/${packageName}`,
-            cancel_url: 'http://localhost:5173/failed',
+            success_url: `https://autovibe12.netlify.app/success/${packageName}`,
+            cancel_url: 'https://autovibe12.netlify.app/failed',
             // Optionally, you can set metadata for additional information
             // metadata: {
             //     packageName: packageName
