@@ -70,11 +70,11 @@ module.exports.signin = async (req, res) => {
                     res.send({status:200,Token:token, response:'Password is correct. Allow access.', id:user._id, name:user.username, verify:user.isvarified});
                 } else {
                     // Passwords do not match, deny access
-                    res.send('Password is incorrect. Deny access.');
+                    res.send({status:402, message:'Password is incorrect. Deny access.'});
                 }
             });
         } else {
-            res.send('Email is not correct.');
+            res.send({status:402, message:'Email is not correct.'});
         }
     } catch (error) {
         res.status(500).send(error.message);
